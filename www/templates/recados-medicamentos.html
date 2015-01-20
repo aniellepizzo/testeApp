@@ -1,9 +1,8 @@
-<div>
-	<script type="text/javascript" src="js/jquery.js"></script>
+<div class="recados-medicamentos">
     
-    <div class="row" style="background: #f3f3f3;">
+    <div class="row item-remedio" id="list-remedios">
         <div class="col col-70">
-            <p>texto texto</p>
+            <p class="item-text-wrap">This is a basic Card which contains.</p>
         </div>
         <div class="col col-10">
             <button class="button button-stable ion-edit icon-small">&nbsp;</button>
@@ -14,14 +13,14 @@
     </div>
     
     
-    <div class="row">
+    <div class="row" id="add-remedio">
         <div class="col">
         	<button class="button button-full button-canguru icon-left ion-plus-round icon-left-14">Adicionar medicamento</button>
         </div>
     </div>
     
-    <div class="row" id="row-medicamento">
-    	<div class="col col-100">
+    <div class="row row-medicamento" id="list-medicamentos">
+    	<div class="col col-100" id="item-medicamento">
         	<h2>Medicamento 1</h2>
             <div class="traco"></div>
             <form class="formulario">
@@ -42,15 +41,17 @@
             </form>
         </div>
     </div>
+    
+    <div class="row" id="btns-medicamentos">
         <div class="traco"></div>
-        <div class="row">
-        	<div class="col col-50">
-                <button class="button button-full button-canguru icon-left ion-plus-round icon-left-14"> medicamento</button>
-            </div>
-        	<div class="col col-50">
-                <button class="button button-full button-canguru icon-left ion-checkmark-round icon-left-14" id="btn-concluir">concluir</button>
-            </div>            
+        <div class="col col-50">
+            <button class="button button-full button-canguru icon-left ion-plus-round icon-left-14" id="new-medicamento"> medicamento</button>
         </div>
+        <div class="col col-50">
+            <button class="button button-full button-canguru icon-left ion-checkmark-round icon-left-14" id="btn-concluir">concluir</button>
+        </div>            
+    </div>
+<script type="text/javascript" src="js/scripts.js"></script>
 </div>
 
 

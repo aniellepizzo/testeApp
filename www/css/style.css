@@ -222,7 +222,6 @@ h1, h2, h3, h4, h5, h6{
 /************************************************/
 
 .list .item.item-accordion {
-  line-height: 38px;
   padding-top: 0;
   padding-bottom: 0;
   transition: 0.09s all linear;
@@ -241,6 +240,22 @@ h1, h2, h3, h4, h5, h6{
 	border-radius: 5px;
 }
 
+
+.recados-medicamentos{
+	padding-top: 10px;
+}
+
+.item-remedio{
+	background:#f3f3f3;
+	border: 1px solid #ccc;
+}
+
+.item-remedio .col-70 p{
+	line-height: 27px;
+	font-size: 12px;
+	text-transform: uppercase;
+	white-space: normal;
+}
 
 
 
