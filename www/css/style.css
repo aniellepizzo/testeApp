@@ -1,7 +1,246 @@
----
-name: simple
-component: ionSideMenus
----
-.menu-left .scroll-content {
-  background-color: #f4f4f4;
+/******************************************************/
+/********************** DEFAULT ***********************/
+/******************************************************/
+
+.text-center {
+  text-align: center;
 }
+
+.center-block {
+  display: block;
+  margin: 0 auto;
+}
+
+.no-float{
+	float: none;
+}
+
+.pull-right {
+  float: right !important;
+}
+
+.pull-left {
+  float: left !important;
+}
+
+.visible {
+	visibility: visible;
+}
+
+.invisible {
+	visibility: hidden;
+}
+
+.hide {
+  display: none !important;
+}
+
+.show {
+  display: block !important;
+}
+
+.img-responsive{
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.no-border{
+	border: none !important;
+}
+
+.no-padding{
+	padding: 0 !important;
+}
+
+/******************************************************/
+/***************** FIM DE DEFAULT *********************/
+/******************************************************/
+@font-face {
+  font-family: 'canguru';
+  src: url('../fonts/font-canguru.ttf');
+  font-weight: bold;
+}
+
+
+h1, h2, h3, h4, h5, h6{
+	font-family: canguru;
+	text-transform: uppercase;
+	color: #e42012;
+	font-weight: normal;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+.traco{
+	width: 100%;
+	margin: 10px auto;
+	border-bottom: 1px dashed #ccc;
+	display: block;
+}
+
+.button{
+	border-radius: 5px;
+}
+
+.button.button-canguru{
+	background: #d26b54;
+	border-radius: 5px;	
+	border: 1px solid #b9523b;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+.button.button-canguru.activated{
+	background: #EF473A;
+	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.button.icon-left-14:before, .button.icon-right-14:before {
+	font-size: 14px !important;
+}
+
+.formulario label{
+	font-size: 12px;
+	text-transform: uppercase;
+	color: #8d8c90;
+}
+
+.formulario input{
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	outline: none;
+	display: block;
+	padding: 0 10px;
+}
+
+.icon-small{
+	background: transparent !important;
+	min-width: 0px !important;
+	min-height: 0px !important;
+	line-height: 0 !important;
+	border: 0;
+	padding: 5px !important;
+}
+
+/******* TOP ***********/
+.bar-right button{
+	padding: 0 10px !important;
+	border-left: 1px solid #e42012 !important;
+}
+
+.user-filho{
+	border:2px solid #fff;
+	width: 33px;
+	border-radius: 50px;
+	float: left;
+	margin: 0 15px 0 0;
+}
+
+/*********** MENU LEFT **************/
+
+.menu-left .user img{
+	border:1px solid #CCC;
+	width: 40px;
+	border-radius: 50px;
+	float: left;
+	margin: 0 15px 0 0;
+}
+
+.menu-left .user span{
+	text-align: left;
+	display: block;
+}
+
+/************** POPOVER ***************/
+.popover h4{
+	border-bottom: 1px dashed #ccc;
+	padding: 0 0 10px 10px;
+}
+.popover-calendario,
+.popover-user-filho{
+	height: 220px;
+}
+
+.popover-recado{
+	width: 300px;
+	height: 325px;
+}
+
+
+.lista-recados{
+	height: 115px;
+	overflow: auto;
+	border: 1px solid #f2f2f2;
+}
+
+.lista-recados li{
+	padding: 10px;
+	border-bottom: 1px solid #f2f2f2;
+}
+
+.lista-recados li:last-child{
+	border-bottom: 0;
+}
+
+
+.enviar-recado form label textarea{
+	border: 1px solid #ccc;
+	height: 50px;
+}
+
+
+.list-popover a{
+	border-bottom: 1px solid #ccc !important;
+	margin: 0;
+}
+
+.list-popover a:last-child{
+	border-bottom: 0 !important;
+}
+
+.user-filho-popover a img{
+	width: 40px;
+	border-radius: 30px;
+	border: 2px solid #ccc;
+	float: left;
+	margin-right: 10px;
+}
+
+.user-filho-popover a span{
+	text-align: left;
+	line-height: 16px;
+	display: block;
+	margin-top: 5px;
+}
+
+
+/************************************************/
+/******************* ACORDION *******************/
+/************************************************/
+
+.list .item.item-accordion {
+  line-height: 38px;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: 0.09s all linear;
+}
+
+.list .item.item-accordion.ng-hide {
+  line-height: 0px;
+}
+
+.list .item.item-accordion.ng-hide-add,
+.list .item.item-accordion.ng-hide-remove {
+  display: block !important;
+}
+
+.item.item-stable{
+	border-radius: 5px;
+}
+
+
+
+

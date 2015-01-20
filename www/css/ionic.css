@@ -18,7 +18,6 @@
   MIT License: https://github.com/driftyco/ionicons
 */
 body{
-	background: #FCF;
   cursor: url('http://ionicframework.com/img/finger.png'), auto;
  }
 @font-face {
@@ -4033,7 +4032,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
   margin-top: 12px;
   margin-left: -110px;
   height: 280px;
-  width: 220px;
+  width: 250px;
   background-color: #fff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
   opacity: 0; }
@@ -6586,7 +6585,7 @@ a.button {
   -moz-flex: 0 0 90%;
   -ms-flex: 0 0 90%;
   flex: 0 0 90%;
-  max-width: 90%; }
+  /*max-width: 90%;*/ }
 
 /* Responsive Grid Classes */
 /* Adding a class of responsive-X to a row */

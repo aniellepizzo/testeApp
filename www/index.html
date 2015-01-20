@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
+<html ng-app="MyApp">
     <head>
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
@@ -7,57 +7,245 @@
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <title>Hello World</title>
-        
+
         <link href="css/ionic.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
-
+        
+        <script type="text/javascript" src="js/jquery.min.js"></script>
         <script src="js/ionic.bundle.js"></script>   
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
         </script>
-    </head>
+        
+        </head>
     
-    <body>
-    
-<ion-side-menus ng-controller="SideMenusSimpleCtrl">
+<body ng-controller="MainCtrl">
 
-    <ion-side-menu-content>
-        <!-- HEADER MENU -->
-        <ion-header-bar class="bar-energized">
-          <div class="buttons">
-            <div class="button button-clear" ng-click="toggleLeft()">
-              <i class="icon ion-navicon"></i>
-            </div>
-          </div>
-          <h1 class="title">Side</h1>
-        </ion-header-bar>
-        
-        <!-- CONTENT -->
-        <ion-content class="padding">
-          <p>Slide the content or press the button on the header to open a side menu.</p>
-        </ion-content>
-        
-        <!-- FOOTER -->
-        <div class="bar bar-footer bar-energized">
-          <h1 class="title">Footer</h1>
-        </div>
-    </ion-side-menu-content>
-    
-    <!-- MENU LEFT -->
-    <ion-side-menu side="left">
-        <ion-header-bar class="bar-assertive"></ion-header-bar>
+    <ion-nav-view></ion-nav-view>
+
+    <script id="templates/event-menu.html" type="text/ng-template">
+      <ion-side-menus enable-menu-with-back-views="true">
+
+        <ion-side-menu-content>
+          <ion-nav-bar class="bar-assertive">
+            <ion-nav-back-button></ion-nav-back-button>
+
+            <ion-nav-buttons side="left">
+              <button class="button button-icon button-clear ion-navicon" menu-toggle="left"><img src="img/small-logo.png"/></button>
+            </ion-nav-buttons>
+			
+			<ion-nav-buttons side="right">
+				<ul class="bar-right">
+					<button class="button button-icon button-clear ion-calendar" ng-click="calendario.show($event)"></button>
+					<button class="button button-icon button-clear ion-chatbubble" ng-click="recado.show($event)"></button>
+					<button class="button button-icon button-clear" ng-click="UserFilho.show($event)"><img src="img/filho-01.jpg" class="user-filho"/></button>
+				</ul>
+            </ion-nav-buttons>
+          </ion-nav-bar>
+
+          </ion-nav-bar>
+		  
+			<ion-nav-view name="menuContent"></ion-nav-view>
+            
+
+          </ion-nav-bar>
+
+        </ion-side-menu-content> 
+
+        <ion-side-menu side="left">
+          <ion-header-bar class="bar-assertive">
+            <h1 class="title">Left Menu</h1>
+          </ion-header-bar>
+          <ion-content class="menu-left">
+		  	<ul>
+				<a class="button button-full button-clear user">
+					<img src="img/foto-mae.jpg"/>
+					<span>Margit Riederer Zaroni </span>
+				</a>
+			</ul>
+            <ul class="list">
+              <!-- Note each link has the 'menu-close' attribute so the menu auto closes when clicking on one of these links -->
+              <a href="#/event/home" class="item" menu-close>Home</a>
+              <a href="#/event/perfil" class="item" menu-close>Perfil</a>
+              <a href="#/event/home" class="item" menu-close>Agenda</a>
+              <a href="#/event/home" class="item" menu-close>Grade Escolar</a>
+              <a href="#/event/recados-escola" class="item" menu-close>Recados para Escola</a>
+              <a href="#/event/fotos" class="item" menu-close>Fotos</a>
+              <a href="#/event/noticias" class="item" menu-close>Noticias</a>
+            </ul>
+          </ion-content>
+		  
+        </ion-side-menu>
+      </ion-side-menus>
+	<ion-footer-bar align-title="left" class="bar-assertive"></ion-footer-bar>	  
+    </script>
+
+	<script id="templates/home.html" type="text/ng-template">
+        <ion-view view-title="Welcome">
+            <ion-content class="padding">
+                <p>Swipe to the right to reveal the left menu.</p>
+                <p>(On desktop click and drag from left to right)</p>
+            </ion-content>
+        </ion-view>
+    </script>
+
+    <script id="templates/perfil.html" type="text/ng-template">
+      <ion-view view-title="Perfil">
         <ion-content>
-          <a class="item" ng-click="toggleLeft()">
-            Close Menu
-          </a>
-        </ion-content>
-    </ion-side-menu><!-- /MENU LEFT -->
+          <form class="list" ng-show="showForm">
+            <div class="item item-divider">
+              Attendee Info
+            </div>
+            <label class="item item-input">
+              <input type="text" placeholder="First Name" ng-model="attendee.firstname">
+            </label>
+            <label class="item item-input">
+              <input type="text" placeholder="Last Name" ng-model="attendee.lastname">
+            </label>
+            <div class="item item-divider">
+              Shirt Size
+            </div>
+            <ion-radio ng-repeat="shirtSize in shirtSizes"
+                       ng-value="shirtSize.value"
+                       ng-model="attendee.shirtSize">
+              {{ shirtSize.text }}
+            </ion-radio>
+            <div class="item item-divider">
+              Lunch
+            </div>
+            <ion-toggle ng-model="attendee.vegetarian">
+              Vegetarian
+            </ion-toggle>
+            <div class="padding">
+              <button class="button button-block" ng-click="submit()">Checkin</button>
+            </div>
+          </form>
 
-</ion-side-menus>
+          <div ng-hide="showForm">
+            <pre ng-bind="attendee | json"></pre> 
+            <a href="#/event/attendees">View attendees</a>
+          </div>
+        </ion-content>
+      </ion-view>
+    </script>
+
+    <script id="templates/recados-escola.html" type="text/ng-template">
+      <ion-view view-title="Recados para escola">
+        <ion-content>
+			<div class="row">
+				<div class="col col-90 center-block">
+					<h1>cuidados especiais</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col col-90 center-block">
+					<label class="item item-input item-stacked-label">
+						<span class="input-label">Data</span>
+						<input type="date" placeholder=" /  / ">
+					</label>
+					<br/>
+  					<div class="traco"></div>
+				</div>
+			</div>
+
+			<ion-list>
+				<div class="row">
+					<div class="col col-90 center-block">
+
+						<ion-list>
+						<div ng-repeat="group in groups">
+						  <ion-item class="item-stable" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
+							  <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i>
+							&nbsp;
+							{{group.name}}
+						  </ion-item>
+						  <ion-item class="item-accordion" ng-show="isGroupShown(group)">
+							<ion-scroll  direction="y" style="width: 100%; height: 250px">
+								<div ng-include src="group.url"></div>
+							</ion-scroll> 
+						  </ion-item>
+						</div>
+						</ion-list>
+
+					</div>
+				</div>
+			</ion-list>
+			<div class="row">
+				<div class="col col-90 center-block">
+					<div class="traco"></div>
+					<button class="button button-block button-assertive">enviar cuidados</button>
+				</div>
+			</div>
+        </ion-content>
+      </ion-view>
+    </script>
+    
+	<script id="templates/fotos.html" type="text/ng-template">
+        <ion-view view-title="Fotos">
+            <ion-content class="padding">
+                <p>Swipe to the right to reveal the left menu.</p>
+                <p>(On desktop click and drag from left to right)</p>
+            </ion-content>
+        </ion-view>
+    </script>
+    
+	<script id="templates/noticias.html" type="text/ng-template">
+        <ion-view view-title="Noticias">
+            <ion-content class="padding">
+                <p>Swipe to the right to reveal the left menu.</p>
+                <p>(On desktop click and drag from left to right)</p>
+            </ion-content>
+        </ion-view>
+    </script>
+    
+	<script id="templates/calendario.html" type="text/ng-template">
+        <ion-popover-view class="popover-calendario">
+			<ion-content>
+                <h4 class="title">Visões do calendário</h4>
+                <div class="list list-popover">
+              <a href="#/event/home" class="item" pop-close>Home</a>
+              <a href="#/event/check-in" class="item" menu-close>Check-in</a>
+              <a href="#/event/attendees" class="item" menu-close>Attendees</a>
+                </div>
+            </ion-content>
+        </ion-popover-view>
+    </script>
+    
+	<script id="templates/recado.html" type="text/ng-template">
+        <ion-popover-view class="popover-recado">
+            <ion-content overflow-scroll="true">
+                <h4>Popover recado</h4>
+                
+                <ul class="list list-inset lista-recados">
+                    <li ng-repeat="recado in scrap" >{{ recado.id }}</li>
+                </ul>
+                
+                <div class="traco"></div>
+                
+                <div class="list list-inset enviar-recado">
+					<form>
+						<label><textarea placeholder="Envie seu recado"></textarea></label>
+						<button class="button button-small button-full button-assertive">Enviar recado</button>
+					</form>
+                </div>
+				
+            </ion-content>
+        </ion-popover-view>
+    </script>
+    
+	<script id="templates/user-filho.html" type="text/ng-template">
+        <ion-popover-view class="popover-user-filho">
+            <ion-content>
+                <h4 class="title">Popover user filho</h4>
+                <div class="list user-filho-popover list-popover">
+                    <a class="button button-full button-clear" ng-repeat="filho in userfilho" href="#" ><img  ng-src="{{ filho.images[0].thumb }}"/> <span> {{ filho.id }} </span></a>
+                </div>
+            </ion-content>
+        </ion-popover-view>
+    </script>
         
-    
-    </body>
-    
+
+  </body>
 </html>
