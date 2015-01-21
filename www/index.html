@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="MyApp">
+<html ng-app="MyApp" id="top">
     <head>
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
@@ -7,6 +7,10 @@
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <title>Hello World</title>
+        
+        <link rel="stylesheet" href="css/calendar/bootstrap.css" />
+        <link rel="stylesheet" href="css/calendar/fullcalendar.css">
+        <link rel="stylesheet" href="css/calendar/calendarDemo.css" />
 
         <link href="css/ionic.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
@@ -15,9 +19,13 @@
         <script src="js/ionic.bundle.js"></script>   
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
+        <script type="text/javascript"> app.initialize(); </script>
+        
+		<script src="js/calendar/ui-bootstrap-tpls-0.9.0.js"></script>
+        <script src="js/calendar/moment.js"></script>
+        <script src="js/calendar/fullcalendar.js"></script>
+        <script src="js/calendar/gcal.js"></script>
+        <script src="js/calendar/calendar.js"></script>
         
         </head>
     
@@ -81,8 +89,35 @@
 	<script id="templates/home.html" type="text/ng-template">
         <ion-view view-title="Welcome">
             <ion-content class="padding">
-                <p>Swipe to the right to reveal the left menu.</p>
-                <p>(On desktop click and drag from left to right)</p>
+							
+				<div class="container">
+					<div class="btn-toolbar">
+						<div class="btn-group">
+							<button class="btn btn-success" ng-click="changeView('agendaDay', myCalendar)">Day</button>
+							<button class="btn btn-success" ng-click="changeView('agendaWeek', myCalendar)">Week</button>
+							<button class="btn btn-success" ng-click="changeView('month', myCalendar)">Month</button>
+						</div>
+					</div>
+					<div class="calendar" ng-model="eventSources" calendar="myCalendar" config="uiConfig.calendar" ui-calendar="uiConfig.calendar"></div>
+
+					<div class="alert-success calAlert" ng-show="alertMessage != undefined && alertMessage != ''">
+						<h4>{{alertMessage}}</h4>
+					</div>
+					
+					<ul class="unstyled">
+						<li ng-repeat="e in events | filter:currentDate">
+							<div class="alert alert-info">
+								<a class="close" ng-click="remove($index)"><i class="icon-remove"></i></a>
+								<b> {{e.title}}</b> - {{e.start | date:"MMM dd"}}
+							</div>
+						</li>
+					</ul>
+					
+				</div>
+
+
+
+				
             </ion-content>
         </ion-view>
     </script>
