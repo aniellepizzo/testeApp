@@ -1,5 +1,13 @@
-<div style="background-color: #fcfcfc; border: 1px solid #e1e1e1; text-align: center; width: 200px;">
-	<h1> Disposição </h1>
-    <div><textarea placeholder="Envie seu recado"></textarea></div>
-  Fragment 1: {{$parent.inputVar}}
+<div>
+	<div class="row">
+    	<div class="col">
+
+          <ion-radio ng-repeat="item in clientSideList" ng-value="item.value" ng-model="data.clientSide">
+            {{ item.text }}
+          </ion-radio>
+
+        </div>
+    </div>
+
+<script type="text/javascript" src="js/scripts.js"></script>
 </div>

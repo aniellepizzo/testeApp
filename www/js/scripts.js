@@ -1,5 +1,8 @@
 $(document).ready(function() { 
 
+//////////////////////////////////////////////
+///////////	RECADOS - MEDICAMENTOS	/////////
+/////////////////////////////////////////////
 	$("#list-remedios").hide();
 	$("#list-medicamentos").hide();
 	$("#btns-medicamentos").hide();
@@ -14,4 +17,9 @@ $(document).ready(function() {
 		$("#list-medicamentos, #btns-medicamentos").hide();
 		$("#list-remedios, #add-remedio").fadeIn();
 	});
+	
+	
+	
+	
 });
+

@@ -165,6 +165,25 @@ angular.module('MyApp', ['ionic'])
 
 
 
+
+///// lista de radios de disposição///
+  $scope.clientSideList = [
+    {
+      text: "Agitado",
+      value: "bb"
+    },
+    {
+      text: "Normal",
+      value: "ng"
+    },
+    {
+      text: "Quieto",
+      value: "em"
+    }
+  ];
+
+
+
   
 ////////// FINAL ACORDION RECADOS ESCOLA ///////////////	
 
