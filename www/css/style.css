@@ -306,7 +306,7 @@ p, a, li, label{
 }
 
 .btn-toolbar button{
-	padding-left: 10px;
+	padding-left: 15px;
 	color: #8d8c90 !important;
 }
 
@@ -314,12 +314,12 @@ p, a, li, label{
 	padding: 0 20px;
 }
 
-.fc-toolbar .fc-left{
+/*.fc-toolbar .fc-left{
 	width: 100%;
 	margin: 0px auto;
 	text-align: center;
 }
-.fc .fc-toolbar > * > * {
+*/.fc .fc-toolbar > * > * {
     float: none;
 }
 

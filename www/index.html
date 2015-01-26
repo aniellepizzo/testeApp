@@ -87,7 +87,7 @@
     </script>
 
 	<script id="templates/home.html" type="text/ng-template">
-        <ion-view view-title="Welcome">
+        <ion-view view-title="">
             <ion-content>
 
 				<div class="container">
@@ -98,7 +98,7 @@
 							<button class="btn button-clear button-stable" ng-click="changeView('agendaMonth', myCalendar)">Month</button>
 						</div>
 					</div>
-					<div class="calendar" ng-model="eventSources" calendar="myCalendar" ui-calendar="uiConfig.calendar"></div>
+					<div class="calendar" ng-model="eventSources" calendar="myCalendar" ui-calendar="uiCalendarConfig.calendar"></div>
 
 					<div class="alert-success calAlert" ng-show="alertMessage != undefined && alertMessage != ''">
 						<h4>{{alertMessage}}</h4>
@@ -121,7 +121,7 @@
     </script>
 
     <script id="templates/perfil.html" type="text/ng-template">
-      <ion-view view-title="Perfil">
+      <ion-view view-title="">
         <ion-content>
           <form class="list" ng-show="showForm">
             <div class="item item-divider">
@@ -161,7 +161,7 @@
     </script>
 
     <script id="templates/recados-escola.html" type="text/ng-template">
-      <ion-view view-title="Recados para escola">
+      <ion-view view-title="">
         <ion-content>
 			<div class="row">
 				<div class="col col-90 center-block">
@@ -210,7 +210,7 @@
     </script>
     
 	<script id="templates/fotos.html" type="text/ng-template">
-        <ion-view view-title="Fotos">
+        <ion-view view-title="">
             <ion-content class="padding">
                 <p>Swipe to the right to reveal the left menu.</p>
                 <p>(On desktop click and drag from left to right)</p>
@@ -219,7 +219,7 @@
     </script>
     
 	<script id="templates/noticias.html" type="text/ng-template">
-        <ion-view view-title="Noticias">
+        <ion-view view-title="">
             <ion-content class="padding">
                 <p>Swipe to the right to reveal the left menu.</p>
                 <p>(On desktop click and drag from left to right)</p>

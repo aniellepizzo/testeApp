@@ -23,16 +23,16 @@ var defaults = {
 
 	defaultTimedEventDuration: '02:00:00',
 	defaultAllDayEventDuration: { days: 1 },
-	forceEventDuration: false,
+	forceEventDuration: true,
 	nextDayThreshold: '09:00:00', // 9am
 
 	// display
 	defaultView: 'month',
 	aspectRatio: 1.35,
 	header: {
-		left: 'today prev,next',
+		left: 'today',
 		center: 'title',
-		right: ''
+		right: ' prev,next'
 	},
 	weekends: true,
 	weekNumbers: false,
