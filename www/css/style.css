@@ -294,7 +294,32 @@ p, a, li, label{
 
 
 
+/**************************************************/
+/***************   CALENDAR   *********************/
+/**************************************************/
+.btn-toolbar{
+	margin-top: 0;
+	background: #f3f3f3;
+	border-bottom: 1px solid #ccc;
+	text-align: right;
+	padding: 6px;
+}
 
+.btn-toolbar button{
+	padding-left: 10px;
+	color: #8d8c90 !important;
+}
 
+.calendar{
+	padding: 0 20px;
+}
 
+.fc-toolbar .fc-left{
+	width: 100%;
+	margin: 0px auto;
+	text-align: center;
+}
+.fc .fc-toolbar > * > * {
+    float: none;
+}
 

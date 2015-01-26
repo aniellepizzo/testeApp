@@ -5,6 +5,8 @@
  */
 
 (function(factory) {
+	
+
 	if (typeof define === 'function' && define.amd) {
 		define([ 'jquery', 'moment' ], factory);
 	}
@@ -28,9 +30,9 @@ var defaults = {
 	defaultView: 'month',
 	aspectRatio: 1.35,
 	header: {
-		left: 'title',
-		center: '',
-		right: 'today prev,next'
+		left: 'today prev,next',
+		center: 'title',
+		right: ''
 	},
 	weekends: true,
 	weekNumbers: false,
@@ -155,8 +157,8 @@ var langOptionHash = {
 var rtlDefaults = {
 	header: {
 		left: 'next,prev today',
-		center: '',
-		right: 'title'
+		center: 'title',
+		right: ''
 	},
 	buttonIcons: {
 		prev: 'right-single-arrow',
@@ -915,8 +917,6 @@ function Calendar(element, instanceOptions) {
 		}
 	}
 	
-	
-	
 	/* Date
 	-----------------------------------------------------------------------------*/
 	
@@ -1640,7 +1640,6 @@ function EventManager(options) { // assumed to be a calendar
 	}
 
 	
-	
 	function renderEvent(eventData, stick) {
 		var event = buildEvent(eventData);
 		if (event) {
@@ -1654,7 +1653,6 @@ function EventManager(options) { // assumed to be a calendar
 			reportEvents(cache);
 		}
 	}
-	
 	
 	function removeEvents(filter) {
 		var eventID;
@@ -8389,3 +8387,11 @@ $.extend(AgendaDayView.prototype, {
 ;;
 
 });
+
+
+
+
+
+
+
+
