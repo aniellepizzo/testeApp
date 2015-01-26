@@ -112,7 +112,7 @@ img {
   max-width: none;
 }
 
-button,
+/*button,
 input,
 select,
 textarea {
@@ -169,7 +169,7 @@ textarea {
   vertical-align: top;
 }
 
-@media print {
+*/@media print {
   * {
     color: #000 !important;
     text-shadow: none !important;
@@ -263,11 +263,11 @@ a:focus {
           border-radius: 500px;
 }
 
-.row {
+/*.row {
   margin-left: -20px;
   *zoom: 1;
 }
-
+*/
 .row:before,
 .row:after {
   display: table;
